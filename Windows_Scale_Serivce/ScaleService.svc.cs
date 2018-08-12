@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
 using ScaleService.Controller;
 using ScaleService.Scale_Models;
+using System.Threading;
 
 namespace ScaleService
 {
     public class Scale: IScaleService
     {
-        static Scale_Controllers SC_Controller = new Scale_Controllers();
+        private Scale_Controllers SC_Controller = new Scale_Controllers();
 
-        public List<Weightinfo> Get_Weight()
-        {                     
-            return SC_Controller.BkNell_335();  
+        public List<Scale_Result> Get_Weight()
+        {
+         
+            return SC_Controller.Get_Weight();  
         }
 
     }      

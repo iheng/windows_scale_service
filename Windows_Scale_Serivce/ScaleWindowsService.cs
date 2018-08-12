@@ -1,12 +1,12 @@
-﻿using ScaleService.Scale_Models;
-using System.ServiceModel;
+﻿using System.ServiceModel;
 using System.ServiceProcess;
+
 
 namespace ScaleService
 {
+    
     public class ScaleWindowsService : ServiceBase
     {
-
         public ServiceHost serviceHost = null;
         public ScaleWindowsService()
         {
@@ -16,7 +16,7 @@ namespace ScaleService
 
         public static void Main()
         {
-            ServiceBase.Run(new ScaleWindowsService());
+            Run(new ScaleWindowsService());
         }
         // Start the Windows service.
         protected override void OnStart(string[] args)
@@ -41,6 +41,7 @@ namespace ScaleService
             {
                 serviceHost.Close();
                 serviceHost = null;
+                
             }
         }
     }

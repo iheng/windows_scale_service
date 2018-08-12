@@ -12,7 +12,7 @@ namespace ScaleService
         // TODO: Add your service operations here
         [OperationContract]
         [WebGet]
-        List<Weightinfo> Get_Weight();
+        List<Scale_Result> Get_Weight();
     }
    
 
