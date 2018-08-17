@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+        setInterval(function(){$.getJSON("http://localhost:8080/get_weight?callback=?",null,function (weight) {
+        //alert( )
+        //var weight =JSON.stringify(weightinfo)
+         console.log(weight[0])
+        if(weight[0].Status =="Success")
+        {
+          $("p").text(weight[0].Weight)
+        }
+    })},500)});
+</script>
+</head>
+<body>
+    <p class="balance_number" style="text-align:left;font-size:50px;color:#A23;line-height:60px;display:inline;width:150px;">0.00</p>
+<div></div>
+</body>
+</html>
