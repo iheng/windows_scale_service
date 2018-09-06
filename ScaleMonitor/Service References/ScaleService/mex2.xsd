@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ScaleService.Lib" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ScaleService.Lib" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfBalance_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Balance_Result" nillable="true" type="tns:Balance_Result" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBalance_Result" nillable="true" type="tns:ArrayOfBalance_Result" />
+  <xs:complexType name="Balance_Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Scale_Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Scale_Timeout" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnitOfMesure" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weight" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Balance_Result" nillable="true" type="tns:Balance_Result" />
+  <xs:complexType name="ArrayOfPorts">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Ports" nillable="true" type="tns:Ports" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPorts" nillable="true" type="tns:ArrayOfPorts" />
+  <xs:complexType name="Ports">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="port_Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Ports" nillable="true" type="tns:Ports" />
+</xs:schema>

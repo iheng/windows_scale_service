@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/mex?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ScaleService.Lib" />
+  <xs:element name="Get_Weight">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_WeightResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ScaleService.Lib" minOccurs="0" name="Get_WeightResult" nillable="true" type="q1:ArrayOfBalance_Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Available_Ports">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get_Available_PortsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ScaleService.Lib" minOccurs="0" name="Get_Available_PortsResult" nillable="true" type="q2:ArrayOfPorts" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Set_Port">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Port_Name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Set_PortResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
