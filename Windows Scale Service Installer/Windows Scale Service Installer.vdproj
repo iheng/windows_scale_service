@@ -15,14 +15,8 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_05B248F1A690480BA9BD0DE771710E28"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_05BB5A9E30AE7DCC2DBE7605B66595E6"
-        "OwnerKey" = "8:_64DB8DF81B8746BAB9014415F247D7D0"
+        "MsmKey" = "8:_0E63BF1B96EB44EE4AFBA4D2CE3918F7"
+        "OwnerKey" = "8:_12C06B58566949B6991A9BE820CDA794"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -33,8 +27,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_28B18C513BFF1F4A09E58C89A6852A3A"
-        "OwnerKey" = "8:_12C06B58566949B6991A9BE820CDA794"
+        "MsmKey" = "8:_57FA55774927C0EC99DB0C449E73B4D5"
+        "OwnerKey" = "8:_64DB8DF81B8746BAB9014415F247D7D0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -45,8 +39,14 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_CA6859F1B21A4F27A103CBAC4EE44352"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_12C06B58566949B6991A9BE820CDA794"
+        "OwnerKey" = "8:_0E63BF1B96EB44EE4AFBA4D2CE3918F7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -58,13 +58,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_05BB5A9E30AE7DCC2DBE7605B66595E6"
+        "OwnerKey" = "8:_57FA55774927C0EC99DB0C449E73B4D5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_28B18C513BFF1F4A09E58C89A6852A3A"
+        "OwnerKey" = "8:_12C06B58566949B6991A9BE820CDA794"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -218,10 +218,21 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_05B248F1A690480BA9BD0DE771710E28"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0E63BF1B96EB44EE4AFBA4D2CE3918F7"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\Downloads\\scale_icon.ico"
-            "TargetName" = "8:scale_icon.ico"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_0E63BF1B96EB44EE4AFBA4D2CE3918F7"
+                    {
+                    "Name" = "8:Newtonsoft.Json.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Newtonsoft.Json.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9278C3A7222E47E5BE3F11958037DECC"
             "Condition" = "8:"
@@ -235,17 +246,17 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_05BB5A9E30AE7DCC2DBE7605B66595E6"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_57FA55774927C0EC99DB0C449E73B4D5"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_05BB5A9E30AE7DCC2DBE7605B66595E6"
+                    "_57FA55774927C0EC99DB0C449E73B4D5"
                     {
                     "Name" = "8:log4net.dll"
                     "Attributes" = "3:512"
@@ -269,21 +280,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_28B18C513BFF1F4A09E58C89A6852A3A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CA6859F1B21A4F27A103CBAC4EE44352"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_28B18C513BFF1F4A09E58C89A6852A3A"
-                    {
-                    "Name" = "8:Newtonsoft.Json.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Newtonsoft.Json.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\..\\..\\..\\..\\..\\Downloads\\scale_icon.ico"
+            "TargetName" = "8:scale_icon.ico"
             "Tag" = "8:"
             "Folder" = "8:_9278C3A7222E47E5BE3F11958037DECC"
             "Condition" = "8:"
@@ -297,7 +297,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -488,18 +488,18 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_32739D74808545ED83EB6A30C66AC287"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_71CC1FB7784F4EC8891837E095B977FB"
             {
-            "Name" = "8:ScaleMonitor"
+            "Name" = "8:SC_scale_icon.ico"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_12C06B58566949B6991A9BE820CDA794"
+            "Target" = "8:_CA6859F1B21A4F27A103CBAC4EE44352"
             "Folder" = "8:_2FCAEB1704E94A24874BDC28E3BE1EB1"
             "WorkingFolder" = "8:_9278C3A7222E47E5BE3F11958037DECC"
-            "Icon" = "8:_05B248F1A690480BA9BD0DE771710E28"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
@@ -987,7 +987,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_64DB8DF81B8746BAB9014415F247D7D0"
             {
-            "SourcePath" = "8:..\\weightScaleService\\obj\\Release\\weightScaleService.exe"
+            "SourcePath" = "8:..\\Scale_Service\\obj\\Debug\\weightScaleService.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9278C3A7222E47E5BE3F11958037DECC"

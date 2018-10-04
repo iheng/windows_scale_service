@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
-using ScaleService.Lib;
+using ScaleService.Shared;
 using System.ServiceModel.Web;
 
 namespace ScaleService
@@ -19,8 +19,14 @@ namespace ScaleService
         List<Ports> Get_Available_Ports();
 
         [OperationContract]
-        [WebInvoke(Method ="POST")]
-        void Set_Port(string Port_Name);
+        [WebInvoke(Method ="POST", 
+            UriTemplate = "Set_Device?Port_Name={Port_Name}&Device_Name={Device_Name}")]
+        void Set_Device(string Port_Name, string Device_Name);
+        /*
+        [OperationContract]
+        [WebGet]
+        List<byte[]> Upload_Image();
+        */
     }
    
 

@@ -35,7 +35,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
             this.Ports_Combo_Box = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Device_Combo_Box = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -66,7 +66,7 @@
             // 
             this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Controls.Add(this.Ports_Combo_Box);
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.Device_Combo_Box);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -96,16 +96,16 @@
             this.Ports_Combo_Box.TabIndex = 3;
             this.Ports_Combo_Box.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // comboBox1
+            // Device_Combo_Box
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.Device_Combo_Box.FormattingEnabled = true;
+            this.Device_Combo_Box.Items.AddRange(new object[] {
             "Brecknell 335",
-            "Others"});
-            this.comboBox1.Location = new System.Drawing.Point(200, 20);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 2;
+            "湘平 ES-T"});
+            this.Device_Combo_Box.Location = new System.Drawing.Point(200, 20);
+            this.Device_Combo_Box.Name = "Device_Combo_Box";
+            this.Device_Combo_Box.Size = new System.Drawing.Size(121, 24);
+            this.Device_Combo_Box.TabIndex = 2;
             // 
             // label4
             // 
@@ -242,7 +242,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Device_Combo_Box;
         private System.Windows.Forms.ComboBox Ports_Combo_Box;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TabPage tabPage2;

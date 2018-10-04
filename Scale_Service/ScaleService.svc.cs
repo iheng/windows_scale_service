@@ -1,20 +1,19 @@
 ﻿using System.Collections.Generic;
 using ScaleService.Controller;
 using System.IO.Ports;
-using ScaleService.Lib;
-using System;
+using ScaleService.Shared;
 
 namespace ScaleService
 {
     public class Scale: IScaleService
     {
-        private Scale_Controllers SC_Controller = new Scale_Controllers();
+        private Device_Controller _Controller = new Device_Controller();
 
         public List<Balance_Result> Get_Weight()
         {
-            string Scale_Model = "Brecknell_335";
-            List<Balance_Result> Balance_Result = SC_Controller.Get_Scale_Value(Scale_Model);
-            return Balance_Result;  
+            //string Scale_Model = "Brecknell_335";
+            //List<Balance_Result> Balance_Result = _Controller.Get_Scale_Value(Scale_Model);
+            return _Controller.Get_Scale_Value();  
         }
 
         public List<Ports> Get_Available_Ports()
@@ -28,10 +27,16 @@ namespace ScaleService
             return Avaiable_Ports;
         }
 
-        public void Set_Port(string Port_Name)
+        public void Set_Device(string Port_Name,string Device_Name)
         {
-            SC_Controller.Set_Port(Port_Name);
+            _Controller.Set_Device(Port_Name,Device_Name);
         }
+        /*
+        public List<byte[]> Upload_Image()
+        {
+            return _Controller.Image_Recivied();
+        }
+        */
     }      
 }
 
