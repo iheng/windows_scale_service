@@ -5,6 +5,7 @@ using System.Threading;
 using log4net;
 using ScaleService.Scale_Models;
 using ScaleService.Shared;
+using System.Configuration;
 
 namespace ScaleService.Controller
 {
@@ -19,7 +20,16 @@ namespace ScaleService.Controller
             Current_Balance_Value = "";
             Brecknell._M335.DataReceived += _M335_DataReceived;
             XiangPing_ES_T._XiangPing.DataReceived += _XiangP_DataReceived;
-            Scale_ModelN = "XiangPing_ES_T";
+            try
+            {
+                Scale_ModelN = ConfigurationManager.AppSettings["Default_Scale_Option"].ToString();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.ToString());
+            }
+            
+             
         }
         private void _XiangP_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
@@ -121,13 +131,19 @@ namespace ScaleService.Controller
             return XiangPing_ES_T._XiangPing.Create_Response("Error", "-1", "Plase look scale status. Value not recived,");
 
         }
+
         public void Set_Device(string port_name,string Device_Name)
         {
-           Brecknell._M335.Set_Device(port_name,Device_Name);
+            
+            if (Device_Name == "Brecknell_335")
+            {
+               Brecknell._M335.Set_Device(port_name,Device_Name);
+            }
+            if (Device_Name == "XiangPing_ES_T")
+            {
+               XiangPing_ES_T._XiangPing.Set_Device(port_name, Device_Name);
+            }
         }
-     
-
-
-
+      
     }   
 }

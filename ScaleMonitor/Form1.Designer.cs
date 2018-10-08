@@ -94,14 +94,14 @@
             this.Ports_Combo_Box.Name = "Ports_Combo_Box";
             this.Ports_Combo_Box.Size = new System.Drawing.Size(121, 24);
             this.Ports_Combo_Box.TabIndex = 3;
-            this.Ports_Combo_Box.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            
             // 
             // Device_Combo_Box
             // 
             this.Device_Combo_Box.FormattingEnabled = true;
             this.Device_Combo_Box.Items.AddRange(new object[] {
-            "Brecknell 335",
-            "湘平 ES-T"});
+            "Brecknell_335",
+            "XiangPing_ES_T"});
             this.Device_Combo_Box.Location = new System.Drawing.Point(200, 20);
             this.Device_Combo_Box.Name = "Device_Combo_Box";
             this.Device_Combo_Box.Size = new System.Drawing.Size(121, 24);

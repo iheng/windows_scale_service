@@ -2,6 +2,7 @@
 using System.ServiceModel;
 using ScaleService.Shared;
 using System.ServiceModel.Web;
+using System.Runtime.Serialization;
 
 namespace ScaleService
 {
@@ -19,8 +20,7 @@ namespace ScaleService
         List<Ports> Get_Available_Ports();
 
         [OperationContract]
-        [WebInvoke(Method ="POST", 
-            UriTemplate = "Set_Device?Port_Name={Port_Name}&Device_Name={Device_Name}")]
+        [WebGet]
         void Set_Device(string Port_Name, string Device_Name);
         /*
         [OperationContract]
@@ -28,6 +28,18 @@ namespace ScaleService
         List<byte[]> Upload_Image();
         */
     }
+    /*
+    [DataContract]
+    public class Device_Property
+    {
+        [DataMember]
+        public string Port_Name { get; set; }
+
+        [DataMember]
+        public string Device_Name { get; set; }
+       
+    }*/
+
    
 
 }

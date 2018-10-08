@@ -82,11 +82,7 @@ namespace ScaleMonitor
             }
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
 
-        }
 
         private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
         {
@@ -97,9 +93,11 @@ namespace ScaleMonitor
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
             string Device_Name = Device_Combo_Box.SelectedItem.ToString();
-            string port_name = Ports_Combo_Box.SelectedItem.ToString();
-            client.Set_Port(port_name);
+            string port_Name = Ports_Combo_Box.SelectedItem.ToString();
+            client.Set_Device(port_Name,Device_Name);
+            
         }
     }
 }

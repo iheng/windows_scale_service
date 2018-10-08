@@ -100,23 +100,21 @@ namespace ScaleService.Shared
             try
             {
                 Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                if (configuration.AppSettings.Settings["port"] == null)
+                if (configuration.AppSettings.Settings[Device_Name] == null)
                 {
-                    configuration.AppSettings.Settings.Add("port", port_name);
+                    configuration.AppSettings.Settings.Add(Device_Name, port_name);
                 }
                 else {
-                    configuration.AppSettings.Settings["port"].Value = port_name;
+                    configuration.AppSettings.Settings[Device_Name].Value = port_name;
                 }
-
-                if (configuration.AppSettings.Settings["Device"] == null)
+                if (configuration.AppSettings.Settings["Default_Scale_Option"] == null)
                 {
-                    configuration.AppSettings.Settings.Add("Device", Device_Name);
+                    configuration.AppSettings.Settings.Add("Default_Scale_Option", Device_Name);
                 }
                 else {
-                    configuration.AppSettings.Settings["Device"].Value = Device_Name;
+                    configuration.AppSettings.Settings["Default_Scale_Option"].Value = Device_Name;
                 }
                 configuration.Save(ConfigurationSaveMode.Modified);
-
                 ConfigurationManager.RefreshSection("appSettings");
             }
             catch (ConfigurationErrorsException e)

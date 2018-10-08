@@ -4,7 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8080/mex?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8080/mex?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8080/mex?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ScaleService.Lib" />
+      <xsd:import schemaLocation="http://localhost:8080/mex?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ScaleService.Shared" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IScaleService_Get_Weight_InputMessage">
@@ -19,11 +19,11 @@
   <wsdl:message name="IScaleService_Get_Available_Ports_OutputMessage">
     <wsdl:part name="parameters" element="tns:Get_Available_PortsResponse" />
   </wsdl:message>
-  <wsdl:message name="IScaleService_Set_Port_InputMessage">
-    <wsdl:part name="parameters" element="tns:Set_Port" />
+  <wsdl:message name="IScaleService_Set_Device_InputMessage">
+    <wsdl:part name="parameters" element="tns:Set_Device" />
   </wsdl:message>
-  <wsdl:message name="IScaleService_Set_Port_OutputMessage">
-    <wsdl:part name="parameters" element="tns:Set_PortResponse" />
+  <wsdl:message name="IScaleService_Set_Device_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Set_DeviceResponse" />
   </wsdl:message>
   <wsdl:portType name="IScaleService">
     <wsdl:operation name="Get_Weight">
@@ -34,9 +34,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IScaleService/Get_Available_Ports" message="tns:IScaleService_Get_Available_Ports_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IScaleService/Get_Available_PortsResponse" message="tns:IScaleService_Get_Available_Ports_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Set_Port">
-      <wsdl:input wsaw:Action="http://tempuri.org/IScaleService/Set_Port" message="tns:IScaleService_Set_Port_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IScaleService/Set_PortResponse" message="tns:IScaleService_Set_Port_OutputMessage" />
+    <wsdl:operation name="Set_Device">
+      <wsdl:input wsaw:Action="http://tempuri.org/IScaleService/Set_Device" message="tns:IScaleService_Set_Device_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IScaleService/Set_DeviceResponse" message="tns:IScaleService_Set_Device_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:service name="Scale" />

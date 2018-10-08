@@ -15,7 +15,7 @@ namespace ScaleMonitor.ScaleService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Balance_Result", Namespace="http://schemas.datacontract.org/2004/07/ScaleService.Lib")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Balance_Result", Namespace="http://schemas.datacontract.org/2004/07/ScaleService.Shared")]
     [System.SerializableAttribute()]
     public partial class Balance_Result : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -140,7 +140,7 @@ namespace ScaleMonitor.ScaleService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Ports", Namespace="http://schemas.datacontract.org/2004/07/ScaleService.Lib")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Ports", Namespace="http://schemas.datacontract.org/2004/07/ScaleService.Shared")]
     [System.SerializableAttribute()]
     public partial class Ports : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -186,7 +186,7 @@ namespace ScaleMonitor.ScaleService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ScaleService.IScaleService")]
     public interface IScaleService {
-
+        
         [System.ServiceModel.Web.WebGet]
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScaleService/Get_Weight", ReplyAction="http://tempuri.org/IScaleService/Get_WeightResponse")]
         ScaleMonitor.ScaleService.Balance_Result[] Get_Weight();
@@ -194,9 +194,10 @@ namespace ScaleMonitor.ScaleService {
         [System.ServiceModel.Web.WebGet]
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScaleService/Get_Available_Ports", ReplyAction="http://tempuri.org/IScaleService/Get_Available_PortsResponse")]
         ScaleMonitor.ScaleService.Ports[] Get_Available_Ports();
-        [System.ServiceModel.Web.WebInvoke(Method ="POST")]
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScaleService/Set_Port", ReplyAction="http://tempuri.org/IScaleService/Set_PortResponse")]
-        void Set_Port(string Port_Name);
+
+        [System.ServiceModel.Web.WebGet]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IScaleService/Set_Device", ReplyAction="http://tempuri.org/IScaleService/Set_DeviceResponse")]
+        void Set_Device(string Port_Name, string Device_Name);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -234,8 +235,8 @@ namespace ScaleMonitor.ScaleService {
             return base.Channel.Get_Available_Ports();
         }
         
-        public void Set_Port(string Port_Name) {
-            base.Channel.Set_Port(Port_Name);
+        public void Set_Device(string Port_Name, string Device_Name) {
+            base.Channel.Set_Device(Port_Name, Device_Name);
         }
     }
 }

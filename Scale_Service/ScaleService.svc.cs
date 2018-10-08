@@ -27,9 +27,9 @@ namespace ScaleService
             return Avaiable_Ports;
         }
 
-        public void Set_Device(string Port_Name,string Device_Name)
+        public void Set_Device(string Port_Name, string Device_Name)
         {
-            _Controller.Set_Device(Port_Name,Device_Name);
+            _Controller.Set_Device(Port_Name, Device_Name);
         }
         /*
         public List<byte[]> Upload_Image()
