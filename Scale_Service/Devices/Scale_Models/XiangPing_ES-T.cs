@@ -12,8 +12,8 @@ namespace ScaleService.Scale_Models
         static readonly object padlock = new object();
         public string s_Model { get; private set; }
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        private byte terminator = 107;
-        private byte StartByte = 43;
+        private byte terminator = 107; //'k'
+        private byte StartByte = 43; // '+'
         public XiangPing_ES_T(string Model = "XiangPing_ES_T") : base(Model)
         {
             try
@@ -52,19 +52,14 @@ namespace ScaleService.Scale_Models
         public void data_Recieved(byte[] buffer)
         {
             string currString = System.Text.Encoding.ASCII.GetString(buffer);
-            string workingString = currString.Substring(currString.Length - 13);
-            int start_byte_index = workingString.IndexOf((char)StartByte);
-            int end_byte_index = workingString.IndexOf((char)terminator);
-            
-            if (end_byte_index == 9)
-            {
-                Scale_Value = workingString.Substring(start_byte_index + 3,5);
-                data_recieved = true;
-                Array.Clear(buffer, 0, buffer.Length);
-            }
-
+            string workingString = currString.Substring(currString.IndexOf((char)StartByte),9);
+            Double roundValue;
+            roundValue = Math.Round(Double.Parse(workingString.TrimStart('+')), 2);
+            Scale_Value =roundValue.ToString();
+            data_recieved = true;
+            Array.Clear(buffer, 0, buffer.Length);
         }
-
+            
         public List<Balance_Result> Create_Response(string status, string ScaleWeight, string message)
         {
             List<Balance_Result> Xiang_Result = new List<Balance_Result>();
