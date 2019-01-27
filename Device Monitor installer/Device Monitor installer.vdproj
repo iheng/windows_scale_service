@@ -15,6 +15,18 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_077A1B652C65489683181DA14D9B4F07"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_11C90A15E4774674B351124BD7BD7C16"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_80A5E7D09BD25E1B06CBE5879B7EB9CE"
         "OwnerKey" = "8:_823017FBE57C4528AC866DEEC94CB5D7"
         "MsmSig" = "8:_UNDEFINED"
@@ -33,7 +45,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_90AE3DCE85674B5E9E4A00B7E404FF43"
+        "MsmKey" = "8:_B89FF0222DEF4A67BB25BA41000D0F62"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -70,7 +82,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_90AE3DCE85674B5E9E4A00B7E404FF43"
+        "OwnerKey" = "8:_B89FF0222DEF4A67BB25BA41000D0F62"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -242,6 +254,46 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_077A1B652C65489683181DA14D9B4F07"
+            {
+            "SourcePath" = "8:..\\Scale_Service\\log4net.config"
+            "TargetName" = "8:log4net.config"
+            "Tag" = "8:"
+            "Folder" = "8:_8CF72FBBD09C483292E8E9240FA0F9E4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_11C90A15E4774674B351124BD7BD7C16"
+            {
+            "SourcePath" = "8:..\\Scale_Service\\log4net.config"
+            "TargetName" = "8:log4net.config"
+            "Tag" = "8:"
+            "Folder" = "8:_2B9320A7870E40CF9991CA566B5F8854"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_80A5E7D09BD25E1B06CBE5879B7EB9CE"
             {
             "AssemblyRegister" = "3:1"
@@ -273,14 +325,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_90AE3DCE85674B5E9E4A00B7E404FF43"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B89FF0222DEF4A67BB25BA41000D0F62"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_90AE3DCE85674B5E9E4A00B7E404FF43"
+                    "_B89FF0222DEF4A67BB25BA41000D0F62"
                     {
                     "Name" = "8:log4net.dll"
                     "Attributes" = "3:512"
@@ -421,13 +473,13 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Device Monitor "
+        "ProductName" = "8:Scale Monitor "
         "ProductCode" = "8:{59D945CB-4922-42CD-AEDC-E9A16ABF9797}"
-        "PackageCode" = "8:{FD72DCAF-0D0B-43F6-A3E0-A2AFD1980739}"
+        "PackageCode" = "8:{2399C0D6-4B30-448A-8AC6-45AD8BA19527}"
         "UpgradeCode" = "8:{6B19FB18-A832-4257-8747-1FB3D0D549BA}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.1"
@@ -958,7 +1010,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_823017FBE57C4528AC866DEEC94CB5D7"
             {
-            "SourcePath" = "8:..\\ScaleMonitor\\obj\\Release\\ScaleMonitor.exe"
+            "SourcePath" = "8:..\\ScaleMonitor\\obj\\Debug\\ScaleMonitor.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_2B9320A7870E40CF9991CA566B5F8854"
@@ -986,7 +1038,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D1D81C053D2B4BC78B198181A48EDCEE"
             {
-            "SourcePath" = "8:..\\Scale_Service\\obj\\Release\\weightScaleService.exe"
+            "SourcePath" = "8:..\\Scale_Service\\obj\\Debug\\weightScaleService.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_2B9320A7870E40CF9991CA566B5F8854"

@@ -18,6 +18,7 @@ namespace ScaleMonitor
             client = new ScaleService.ScaleServiceClient();
             DeviceNameTextBox.Text += sc.ServiceName.ToString();
             StatusTextBox.Text += sc.Status.ToString();
+            progressBar1.Hide();
             try
             {
                 ScaleService.Ports[] Availble_Ports = client.Get_Available_Ports();
@@ -58,6 +59,7 @@ namespace ScaleMonitor
                     StatusTextBox.Clear();
                 }
                 StatusTextBox.Text += ServiceControllerStatus.Stopped.ToString();
+                Restart_Button.Enabled = false;
             }
         }
 
@@ -75,6 +77,7 @@ namespace ScaleMonitor
                         StatusTextBox.Clear();
                     }
                     StatusTextBox.Text += ServiceControllerStatus.Running.ToString();
+                    Restart_Button.Enabled = true;
                 }
             }
             catch(Exception ex) {
@@ -98,6 +101,43 @@ namespace ScaleMonitor
             string port_Name = Ports_Combo_Box.SelectedItem.ToString();
             client.Set_Device(port_Name,Device_Name);
             
+        }
+
+        private void restart_Click(object sender, EventArgs e)
+        {
+            using (ServiceController service = new ServiceController("ScaleWindowsService"))
+            {
+                try
+                {
+                    service.Stop();
+                    service.WaitForStatus(ServiceControllerStatus.Stopped);
+
+                    service.Start();
+                    service.WaitForStatus(ServiceControllerStatus.Running);
+                    timer1.Enabled = true;
+                    progressBar1.Show();
+                    if (StatusTextBox.Text != null)
+                    {
+                        StatusTextBox.Clear();
+                    }
+                    StatusTextBox.Text += ServiceControllerStatus.Running.ToString();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Can not restart the Windows Service {service}", ex);
+                }
+            }
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            progressBar1.Value += 2;
+            if (progressBar1.Value > 99) {
+                timer1.Enabled = false;
+                progressBar1.Value = 0;
+                progressBar1.Hide();
+            }
         }
     }
 }

@@ -11,8 +11,6 @@ namespace ScaleService
 
         public List<Balance_Result> Get_Weight()
         {
-            //string Scale_Model = "Brecknell_335";
-            //List<Balance_Result> Balance_Result = _Controller.Get_Scale_Value(Scale_Model);
             return _Controller.Get_Scale_Value();  
         }
 

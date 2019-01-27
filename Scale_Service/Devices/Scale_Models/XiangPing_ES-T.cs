@@ -1,8 +1,9 @@
 ﻿using System;
 using log4net;
-using System.IO.Ports;
+//using System.IO.Ports;
 using ScaleService.Shared;
 using System.Collections.Generic;
+using RJCP.IO.Ports;
 
 namespace ScaleService.Scale_Models
 {
@@ -14,6 +15,7 @@ namespace ScaleService.Scale_Models
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private byte terminator = 107; //'k'
         private byte StartByte = 43; // '+'
+        
         public XiangPing_ES_T(string Model = "XiangPing_ES_T") : base(Model)
         {
             try
@@ -49,17 +51,31 @@ namespace ScaleService.Scale_Models
             }
         }
 
-        public void data_Recieved(byte[] buffer)
+        public void data_Recieved(byte[] recieved, int length)
         {
-            string currString = System.Text.Encoding.ASCII.GetString(buffer);
-            string workingString = currString.Substring(currString.IndexOf((char)StartByte),9);
+            string currString = System.Text.Encoding.ASCII.GetString(recieved);
+            string workingString;
             Double roundValue;
-            roundValue = Math.Round(Double.Parse(workingString.TrimStart('+')), 2);
-            Scale_Value =roundValue.ToString();
-            data_recieved = true;
-            Array.Clear(buffer, 0, buffer.Length);
-        }
+            if (length > 9) {
+                int startIndex = currString.IndexOf((char)StartByte);
+                int endIndex = currString.IndexOf((char)terminator);
+                if (startIndex > -1 && endIndex > -1)
+                {
+                    workingString = currString.Substring(startIndex, endIndex);
+                    roundValue = Math.Round(Double.Parse(workingString.TrimStart('+')), 2);
+                    Scale_Value = roundValue.ToString();
+                    data_recieved = true;
+                }
+                else
+                {
+                    Scale_Value = "0.00";
+                    data_recieved = false;
+                    return;
+                }
+            }
             
+        }
+
         public List<Balance_Result> Create_Response(string status, string ScaleWeight, string message)
         {
             List<Balance_Result> Xiang_Result = new List<Balance_Result>();

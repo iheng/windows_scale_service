@@ -1,12 +1,13 @@
 ﻿using System;
-using System.IO.Ports;
+//using System.IO.Ports;
 using log4net;
 using System.Configuration;
+using RJCP.IO.Ports;
 
 
 namespace ScaleService.Shared
 {
-    public class Scale_Model : SerialPort
+    public class Scale_Model : SerialPortStream
     {
         protected enum Connect_Status:int
         {
@@ -57,9 +58,10 @@ namespace ScaleService.Shared
         {
             try
             {
-                if (!IsOpen)
+                if (!base.IsOpen)
                 {
-                    Open();
+                    base.Open();
+                    //GC.SuppressFinalize(this.BaseStream);
                 }
             }
             catch (Exception ex)
@@ -83,9 +85,10 @@ namespace ScaleService.Shared
         {
             try
             {
-                if (IsOpen)
+                if (base.IsOpen)
                 {
-                    Close();
+                    //GC.ReRegisterForFinalize(this.BaseStream);
+                    base.Close();
                 }
             }
             catch (Exception ex)
@@ -121,6 +124,17 @@ namespace ScaleService.Shared
             {
                 log.Error(e.ToString());
             }
+        }
+        protected override void Dispose(bool disposing)
+        {
+            try
+            {
+                base.Dispose(disposing);
+            }
+            catch (Exception ex) {
+                log.Error(ex.Message);
+            }
+            
         }
 
         /*

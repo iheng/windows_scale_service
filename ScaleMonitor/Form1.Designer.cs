@@ -39,6 +39,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Restart_Button = new System.Windows.Forms.Button();
             this.DeviceNameTextBox = new System.Windows.Forms.TextBox();
             this.StatusTextBox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -47,6 +48,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -94,7 +97,6 @@
             this.Ports_Combo_Box.Name = "Ports_Combo_Box";
             this.Ports_Combo_Box.Size = new System.Drawing.Size(121, 24);
             this.Ports_Combo_Box.TabIndex = 3;
-            
             // 
             // Device_Combo_Box
             // 
@@ -127,6 +129,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.Restart_Button);
             this.tabPage1.Controls.Add(this.DeviceNameTextBox);
             this.tabPage1.Controls.Add(this.StatusTextBox);
             this.tabPage1.Controls.Add(this.button2);
@@ -140,6 +143,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // Restart_Button
+            // 
+            this.Restart_Button.Location = new System.Drawing.Point(133, 228);
+            this.Restart_Button.Name = "Restart_Button";
+            this.Restart_Button.Size = new System.Drawing.Size(75, 35);
+            this.Restart_Button.TabIndex = 4;
+            this.Restart_Button.Text = "Restart";
+            this.Restart_Button.UseVisualStyleBackColor = true;
+            this.Restart_Button.Click += new System.EventHandler(this.restart_Click);
             // 
             // DeviceNameTextBox
             // 
@@ -211,11 +224,23 @@
             this.notifyIcon.Text = "Scale Monitor";
             this.notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(29, 322);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(415, 27);
+            this.progressBar1.TabIndex = 5;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(476, 356);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -248,6 +273,9 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.Button Restart_Button;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

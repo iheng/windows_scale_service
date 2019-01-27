@@ -3,7 +3,8 @@ using System;
 using System.Collections.Generic;
 using log4net;
 using System.Configuration;
-using System.IO.Ports;
+//using System.IO.Ports;
+using RJCP.IO.Ports;
 
 namespace ScaleService.Scale_Models
 {

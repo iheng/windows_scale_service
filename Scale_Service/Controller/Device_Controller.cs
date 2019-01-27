@@ -1,11 +1,12 @@
 ﻿using System;
-using System.IO.Ports;
+//using System.IO.Ports;
 using System.Collections.Generic;
 using System.Threading;
 using log4net;
 using ScaleService.Scale_Models;
 using ScaleService.Shared;
 using System.Configuration;
+using RJCP.IO.Ports;
 
 namespace ScaleService.Controller
 {
@@ -14,12 +15,14 @@ namespace ScaleService.Controller
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private string Current_Balance_Value;
         private string Scale_ModelN;
+        private const int BUFFERSZIE = 13;
 
         public Device_Controller()
         {
             Current_Balance_Value = "";
             Brecknell._M335.DataReceived += _M335_DataReceived;
             XiangPing_ES_T._XiangPing.DataReceived += _XiangP_DataReceived;
+            
             try
             {
                 Scale_ModelN = ConfigurationManager.AppSettings["Default_Scale_Option"].ToString();
@@ -31,20 +34,21 @@ namespace ScaleService.Controller
             
              
         }
+      
         private void _XiangP_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            byte[] temp = new byte[8];
-            byte[] buffer;
+            byte[] value_recieved;
             try
             {
-                
+                if (!XiangPing_ES_T._XiangPing.IsOpen)
+                    return;
                 int byteToRead = XiangPing_ES_T._XiangPing.BytesToRead;
-                if (byteToRead > 13)
+                if (byteToRead > 0)
                 {
-                    buffer = new byte[byteToRead];
-                    int length = XiangPing_ES_T._XiangPing.Read(buffer, 0, byteToRead);
-                    XiangPing_ES_T._XiangPing.data_Recieved(buffer);
-
+                    value_recieved = new byte[byteToRead];
+                    int len = XiangPing_ES_T._XiangPing.Read(value_recieved, 0, byteToRead);
+                    XiangPing_ES_T._XiangPing.data_Recieved(value_recieved,len);
+                    
                 }
             }
 
@@ -111,24 +115,32 @@ namespace ScaleService.Controller
             if (Brecknell._M335.data_recieved)
                 {
                     Current_Balance_Value = Brecknell._M335.Scale_Value;
-                    Thread.Sleep(250);
+                    Thread.Sleep(150);
                     return Brecknell._M335.Create_Response("Success", Current_Balance_Value, "Success");
                 }                
             return Brecknell._M335.Create_Response("Error", "-1","Plase look scale status. Value not recived," );
             
         }
         public List<Balance_Result> _Xiang_Value_Recieved()
-        {
-            if (!XiangPing_ES_T._XiangPing.IsOpen)
-            {
-                XiangPing_ES_T._XiangPing.Open_Port();
+        {         
+            try {
+                if (!XiangPing_ES_T._XiangPing.IsOpen)
+                {
+                    return XiangPing_ES_T._XiangPing.Create_Response("Error", "-1", "Scale is disconnected");
+                }
+
+                if (XiangPing_ES_T._XiangPing.data_recieved)
+                {
+                    //Thread.Sleep(200);
+                    return XiangPing_ES_T._XiangPing.Create_Response("Success", XiangPing_ES_T._XiangPing.Scale_Value, "Success");
+                }
             }
-            if (XiangPing_ES_T._XiangPing.data_recieved)
-            {
-                Thread.Sleep(250);
-                return XiangPing_ES_T._XiangPing.Create_Response("Success", XiangPing_ES_T._XiangPing.Scale_Value, "Success");
+            catch (System.IO.IOException e) {
+                log.Error(e.ToString());
+               
             }
-            return XiangPing_ES_T._XiangPing.Create_Response("Error", "-1", "Plase look scale status. Value not recived,");
+            return XiangPing_ES_T._XiangPing.Create_Response("Error", "-1", "Value is not recieved");
+
 
         }
 
