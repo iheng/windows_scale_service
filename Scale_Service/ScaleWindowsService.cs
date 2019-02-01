@@ -53,14 +53,24 @@ namespace ScaleService
 
         protected override void OnStop()
         {
-            if (serviceHost != null)
+            try
             {
-                serviceHost.Close();
-                serviceHost = null;
-                //Brecknell._M335.Close_Port();
-                XiangPing_ES_T._XiangPing.Close_Port();
+                if (serviceHost != null)
+                {
+                    serviceHost.Close();
+                    serviceHost = null;
+                    //Brecknell._M335.Close_Port();
+                    XiangPing_ES_T._XiangPing.Close_Port();
+                }
+
             }
-            //log.Info("Program exist");
+            catch (System.Exception e)
+            {
+
+                log.Error(e);
+            }
+
+
         }
 
         private void SaveToconfig(Dictionary<string,string> Scales)
@@ -122,7 +132,7 @@ namespace ScaleService
                 SaveToconfig(Devices);
                
             }
-            catch (ManagementException e)
+            catch (System.Exception e)
             {
                 log.Error(e.ToString());
             }

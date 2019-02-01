@@ -51,29 +51,32 @@ namespace ScaleService.Scale_Models
             }
         }
 
-        public void data_Recieved(byte[] recieved, int length)
+        public void data_Recieved(byte[] recieved)
         {
             string currString = System.Text.Encoding.ASCII.GetString(recieved);
             string workingString;
             Double roundValue;
-            if (length > 9) {
-                int startIndex = currString.IndexOf((char)StartByte);
-                int endIndex = currString.IndexOf((char)terminator);
-                if (startIndex > -1 && endIndex > -1)
+            Double parsedValue;
+            
+            int startIndex = currString.IndexOf((char)StartByte);
+            int endIndex = currString.IndexOf((char)terminator);
+            if (startIndex > -1 && endIndex > -1)
+            {
+                workingString = currString.Substring(startIndex, endIndex);
+                if (Double.TryParse(workingString.TrimStart('+'), out parsedValue))
                 {
-                    workingString = currString.Substring(startIndex, endIndex);
-                    roundValue = Math.Round(Double.Parse(workingString.TrimStart('+')), 2);
+                    roundValue = Math.Round(parsedValue, 2);
                     Scale_Value = roundValue.ToString();
                     data_recieved = true;
-                }
-                else
-                {
-                    Scale_Value = "0.00";
-                    data_recieved = false;
-                    return;
-                }
+                } 
+                 
             }
-            
+            else
+            {
+                Scale_Value = "0.00";
+                data_recieved = false;
+                return;
+            }          
         }
 
         public List<Balance_Result> Create_Response(string status, string ScaleWeight, string message)

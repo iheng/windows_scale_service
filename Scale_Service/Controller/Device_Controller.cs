@@ -38,18 +38,23 @@ namespace ScaleService.Controller
         private void _XiangP_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             byte[] value_recieved;
+            XiangPing_ES_T Xiang = (XiangPing_ES_T)sender;
             try
             {
-                if (!XiangPing_ES_T._XiangPing.IsOpen)
+                if (!Xiang.IsOpen)
                     return;
-                int byteToRead = XiangPing_ES_T._XiangPing.BytesToRead;
-                if (byteToRead > 0)
-                {
-                    value_recieved = new byte[byteToRead];
-                    int len = XiangPing_ES_T._XiangPing.Read(value_recieved, 0, byteToRead);
-                    XiangPing_ES_T._XiangPing.data_Recieved(value_recieved,len);
-                    
-                }
+                //int byteToRead = XiangPing_ES_T._XiangPing.BytesToRead;
+                //if (Xiang.Is_Value_Changed)
+                //{
+                    int byteToRead = Xiang.BytesToRead;
+                    if (byteToRead > 0)
+                    {
+                        value_recieved = new byte[byteToRead];
+                        int len = XiangPing_ES_T._XiangPing.Read(value_recieved, 0, byteToRead);
+                        XiangPing_ES_T._XiangPing.data_Recieved(value_recieved);
+
+                    }
+                //}
             }
 
             catch (Exception ex)
@@ -115,7 +120,7 @@ namespace ScaleService.Controller
             if (Brecknell._M335.data_recieved)
                 {
                     Current_Balance_Value = Brecknell._M335.Scale_Value;
-                    Thread.Sleep(150);
+                    Thread.Sleep(100);
                     return Brecknell._M335.Create_Response("Success", Current_Balance_Value, "Success");
                 }                
             return Brecknell._M335.Create_Response("Error", "-1","Plase look scale status. Value not recived," );
@@ -131,7 +136,7 @@ namespace ScaleService.Controller
 
                 if (XiangPing_ES_T._XiangPing.data_recieved)
                 {
-                    //Thread.Sleep(200);
+                    //Thread.Sleep(50);
                     return XiangPing_ES_T._XiangPing.Create_Response("Success", XiangPing_ES_T._XiangPing.Scale_Value, "Success");
                 }
             }
